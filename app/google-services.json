@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1067920972656",
+    "firebase_url": "https://movilesexamen2.firebaseio.com",
+    "project_id": "movilesexamen2",
+    "storage_bucket": "movilesexamen2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067920972656:android:58249a169f60561b",
+        "android_client_info": {
+          "package_name": "com.example.frani.examen1moviles"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067920972656-tjr9ckfvairlbbd0p905li5qlosprgh8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-v9Fdmnv9Ap9soneoWFlTphK6HYNfH9E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

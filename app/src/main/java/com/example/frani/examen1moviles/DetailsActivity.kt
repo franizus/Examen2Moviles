@@ -43,21 +43,11 @@ class DetailsActivity : AppCompatActivity() {
         btnNuevoLibro.setOnClickListener{
             v: View? ->  crearLibro()
         }
-
-        btnMapa.setOnClickListener { view: View ->
-            irAActividadGoogleMaps()
-        }
     }
 
     fun crearLibro() {
         val intent = Intent(this, CreateBookActivity::class.java)
         intent.putExtra("tipo", "Create")
-        intent.putExtra("idAutor", autor?.id!!)
-        startActivity(intent)
-    }
-
-    fun irAActividadGoogleMaps() {
-        val intent = Intent(this, MapsActivity::class.java)
         intent.putExtra("idAutor", autor?.id!!)
         startActivity(intent)
     }
