@@ -34,4 +34,11 @@
     <string name="longitud">Longitud</string>
     <string name="confirmation">Seguro desea eliminar?</string>
     <string name="title_activity_maps">Mapa</string>
+
+    <string name="user">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="login_button">Iniciar Sesion</string>
+    <string name="email_error">Ingrese un correo electronico valido</string>
+    <string name="password_error">El campo contraseña no puede estar vacio</string>
+    <string name="login_error">Error en inicio de sesion</string>
 </resources>

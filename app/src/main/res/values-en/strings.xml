@@ -34,4 +34,11 @@
     <string name="longitud">Longitude</string>
     <string name="confirmation">Are you sure you want to delete?</string>
     <string name="title_activity_maps">Map</string>
+
+    <string name="user">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="login_button">Iniciar Sesion</string>
+    <string name="email_error">Enter a valid email address</string>
+    <string name="password_error">Password field can\'t be empty</string>
+    <string name="login_error">Login error</string>
 </resources>

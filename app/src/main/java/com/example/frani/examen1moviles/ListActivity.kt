@@ -9,6 +9,9 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_list.*
+import android.support.design.widget.FloatingActionButton
+
+
 
 class ListActivity : AppCompatActivity() {
 
@@ -29,6 +32,17 @@ class ListActivity : AppCompatActivity() {
         adaptador.notifyDataSetChanged()
 
         registerForContextMenu(recycler_view)
+
+        val fab = findViewById<FloatingActionButton>(R.id.fab)
+        fab.setOnClickListener{
+            irACreateView()
+        }
+    }
+
+    fun irACreateView() {
+        val intent = Intent(this, CreateActivity::class.java)
+        intent.putExtra("tipo", "Create")
+        startActivity(intent)
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
