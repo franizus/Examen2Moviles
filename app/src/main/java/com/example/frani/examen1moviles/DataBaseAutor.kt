@@ -12,21 +12,21 @@ class DataBaseAutor {
     companion object {
 
         fun insertarAutor(autor: Autor) {
-            "http://192.168.100.159:1337/Autor".httpPost(listOf("nombre" to autor.nombre, "apellido" to autor.apellido, "fechaNacimiento" to autor.fechaNacimiento, "numeroLibros" to autor.numeroLibros, "ecuatoriano" to autor.ecuatoriano))
+            "http://${Factory.ip}:1337/Autor".httpPost(listOf("nombre" to autor.nombre, "apellido" to autor.apellido, "fechaNacimiento" to autor.fechaNacimiento, "numeroLibros" to autor.numeroLibros, "ecuatoriano" to autor.ecuatoriano))
                     .responseString { request, _, result ->
                         Log.d("http-ejemplo", request.toString())
                     }
         }
 
         fun updateAutor(autor: Autor) {
-            "http://192.168.100.159:1337/Autor/${autor.id}".httpPatch(listOf("nombre" to autor.nombre, "apellido" to autor.apellido, "fechaNacimiento" to autor.fechaNacimiento, "numeroLibros" to autor.numeroLibros, "ecuatoriano" to autor.ecuatoriano))
+            "http://${Factory.ip}:1337/Autor/${autor.id}".httpPatch(listOf("nombre" to autor.nombre, "apellido" to autor.apellido, "fechaNacimiento" to autor.fechaNacimiento, "numeroLibros" to autor.numeroLibros, "ecuatoriano" to autor.ecuatoriano))
                     .responseString { request, _, result ->
                         Log.d("http-ejemplo", request.toString())
                     }
         }
 
         fun deleteAutor(id: Int) {
-            "http://192.168.100.159:1337/Autor/$id".httpDelete()
+            "http://${Factory.ip}:1337/Autor/$id".httpDelete()
                     .responseString { request, response, result ->
                         Log.d("http-ejemplo", request.toString())
                     }
@@ -36,7 +36,7 @@ class DataBaseAutor {
             val autores: ArrayList<Autor> = ArrayList()
             val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
             StrictMode.setThreadPolicy(policy)
-            val (request, response, result) = "http://192.168.100.159:1337/Autor".httpGet().responseString()
+            val (request, response, result) = "http://${Factory.ip}:1337/Autor".httpGet().responseString()
             val jsonStringAutor = result.get()
 
             val parser = Parser()

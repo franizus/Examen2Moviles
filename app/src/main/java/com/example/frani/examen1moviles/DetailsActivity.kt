@@ -57,14 +57,6 @@ class DetailsActivity : AppCompatActivity() {
         var libro = libros[position]
 
         when (item.itemId) {
-            R.id.item_menu_compartir -> {
-                val intent = Intent(Intent.ACTION_SEND)
-                intent.type = "text/html"
-                intent.putExtra(Intent.EXTRA_SUBJECT, "${getString(R.string.libro)} - ${getString(R.string.app_name)}")
-                intent.putExtra(Intent.EXTRA_TEXT, "${getString(R.string.isbn)} ${libro.isbn}\n${getString(R.string.name)} ${libro.nombre}\n${getString(R.string.edicion)} ${libro.edicion}\n${getString(R.string.editorial)} ${libro.nombreEditorial}")
-                startActivity(intent)
-                return true
-            }
             R.id.item_menu_editar -> {
                 val intent = Intent(this, CreateBookActivity::class.java)
                 intent.putExtra("tipo", "Edit")

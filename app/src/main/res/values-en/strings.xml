@@ -30,8 +30,6 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="maps">Map</string>
-    <string name="latitud">Latitude</string>
-    <string name="longitud">Longitude</string>
     <string name="confirmation">Are you sure you want to delete?</string>
     <string name="title_activity_maps">Map</string>
 
@@ -41,4 +39,12 @@
     <string name="email_error">Enter a valid email address</string>
     <string name="password_error">Password field can\'t be empty</string>
     <string name="login_error">Login error</string>
+    <string name="picture">Take Picture</string>
+    <string name="title_activity_customer">Books and Authors - Customer</string>
+    <string name="title_activity_seller">Books and Authors - Seller</string>
+    <string name="title_home">Home</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_orders">Orders</string>
+    <string name="price">Price</string>
+    <string name="add">Add</string>
 </resources>

@@ -10,8 +10,8 @@ class Libro(var id: Int,
             var edicion: Int,
             var fechaPublicacion: String,
             var nombreEditorial: String,
-            var latitud: Double,
-            var longitud: Double,
+            var precio: Int,
+            var imagen: String,
             var autorID: Int,
             var createdAt: Long,
             var updatedAt: Long) : Parcelable {
@@ -24,8 +24,8 @@ class Libro(var id: Int,
             parcel.readInt(),
             parcel.readString(),
             parcel.readString(),
-            parcel.readDouble(),
-            parcel.readDouble(),
+            parcel.readInt(),
+            parcel.readString(),
             parcel.readInt(),
             parcel.readLong(),
             parcel.readLong()) {
@@ -43,8 +43,8 @@ class Libro(var id: Int,
         destino?.writeInt(edicion)
         destino?.writeString(fechaPublicacion)
         destino?.writeString(nombreEditorial)
-        destino?.writeDouble(latitud)
-        destino?.writeDouble(longitud)
+        destino?.writeInt(precio)
+        destino?.writeString(imagen)
         destino?.writeInt(autorID)
         destino?.writeLong(createdAt)
         destino?.writeLong(updatedAt)

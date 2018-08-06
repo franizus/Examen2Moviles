@@ -50,14 +50,6 @@ class ListActivity : AppCompatActivity() {
         var autor = autores[position]
 
         when (item.itemId) {
-            R.id.item_menu_compartir -> {
-                val intent = Intent(Intent.ACTION_SEND)
-                intent.type = "text/html"
-                intent.putExtra(Intent.EXTRA_SUBJECT, "${getString(R.string.autor)} - ${getString(R.string.app_name)}")
-                intent.putExtra(Intent.EXTRA_TEXT, "${getString(R.string.name)} ${autor.nombre} ${autor.apellido}\n${getString(R.string.numero_libros)} ${autor.numeroLibros}\n${getString(R.string.fecha_nacimiento)} ${autor.fechaNacimiento}")
-                startActivity(intent)
-                return true
-            }
             R.id.item_menu_editar -> {
                 val intent = Intent(this, CreateActivity::class.java)
                 intent.putExtra("tipo", "Edit")

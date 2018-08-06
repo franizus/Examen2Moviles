@@ -30,8 +30,6 @@
     <string name="yes">Si</string>
     <string name="no">No</string>
     <string name="maps">Mapa</string>
-    <string name="latitud">Latitud</string>
-    <string name="longitud">Longitud</string>
     <string name="confirmation">Seguro desea eliminar?</string>
     <string name="title_activity_maps">Mapa</string>
 
@@ -41,4 +39,12 @@
     <string name="email_error">Ingrese un correo electronico valido</string>
     <string name="password_error">El campo contraseña no puede estar vacio</string>
     <string name="login_error">Error en inicio de sesion</string>
+    <string name="picture">Tomar Foto</string>
+    <string name="title_activity_customer">Libros y Autores - Comprador</string>
+    <string name="title_activity_seller">Libros y Autores - Vendedor</string>
+    <string name="title_home">Inicio</string>
+    <string name="title_cart">Carrito</string>
+    <string name="title_orders">Ordenes</string>
+    <string name="price">Precio</string>
+    <string name="add">Agregar</string>
 </resources>

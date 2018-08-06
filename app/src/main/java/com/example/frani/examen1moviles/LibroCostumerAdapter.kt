@@ -6,42 +6,28 @@ import android.view.*
 import android.widget.Button
 import android.widget.TextView
 
-class LibroAdapter(private val librosList: List<Libro>) : RecyclerView.Adapter<LibroAdapter.MyViewHolder>() {
+class LibroCostumerAdapter(private val librosList: List<Libro>) : RecyclerView.Adapter<LibroCostumerAdapter.MyViewHolder>() {
 
-    private var position: Int = 0
-
-    fun getPosition(): Int {
-        return position
-    }
-
-    fun setPosition(position: Int) {
-        this.position = position
-    }
-
-    inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnCreateContextMenuListener {
+    inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var nombre: TextView
         var fechaPublicacion: TextView
         var editorial: TextView
         var detalles: Button
+        var agregar: Button
         lateinit var libro: Libro
 
         init {
-            nombre = view.findViewById(R.id.txt_1) as TextView
-            fechaPublicacion = view.findViewById(R.id.txt_2) as TextView
-            editorial = view.findViewById(R.id.txt_3) as TextView
-            detalles = view.findViewById(R.id.btn_1)as Button
-            view.setOnCreateContextMenuListener(this)
-        }
-
-        override fun onCreateContextMenu(menu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
-            menu?.add(Menu.NONE, R.id.item_menu_editar, Menu.NONE, R.string.menu_edit)
-            menu?.add(Menu.NONE, R.id.item_menu_borrar, Menu.NONE, R.string.menu_delete)
+            nombre = view.findViewById(R.id.txt_11) as TextView
+            fechaPublicacion = view.findViewById(R.id.txt_21) as TextView
+            editorial = view.findViewById(R.id.txt_31) as TextView
+            detalles = view.findViewById(R.id.btn_11) as Button
+            agregar = view.findViewById(R.id.btn_21) as Button
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-                .inflate(R.layout.recycler_layout, parent, false)
+                .inflate(R.layout.recyclercustomer, parent, false)
 
         return MyViewHolder(itemView)
     }
@@ -52,15 +38,16 @@ class LibroAdapter(private val librosList: List<Libro>) : RecyclerView.Adapter<L
         holder.fechaPublicacion.text = libro.fechaPublicacion
         holder.editorial.text = libro.nombreEditorial
         holder.libro = libro
+        holder.agregar.setOnClickListener{
+            v: View ->
+            val detalleOrden = DetalleOrden(0,0,libro.id,libro.precio,0,0)
+            Factory.orden.add(detalleOrden)
+        }
         holder.detalles.setOnClickListener{
             v: View ->
             val intent = Intent(v.context, DetailsBookActivity::class.java)
             intent.putExtra("libro", libro)
             v.context.startActivity(intent)
-        }
-        holder.itemView.setOnLongClickListener {
-            setPosition(holder.adapterPosition)
-            false
         }
     }
 

@@ -1,9 +1,15 @@
 package com.example.frani.examen1moviles
 
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Base64
 import android.view.View
 import kotlinx.android.synthetic.main.activity_create_book.*
+import java.io.ByteArrayOutputStream
 
 class CreateBookActivity : AppCompatActivity() {
 
@@ -11,6 +17,9 @@ class CreateBookActivity : AppCompatActivity() {
     var idLibro: Int = 0
     var libro: Libro? = null
     var tipo = false
+    lateinit var imageBitmap: Bitmap
+    lateinit var myBase64Image: String
+    lateinit var myBitmapAgain: Bitmap
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +40,10 @@ class CreateBookActivity : AppCompatActivity() {
         btnCrearLibro.setOnClickListener{
             v: View? ->  crearLibro()
         }
+
+        btnPicture.setOnClickListener{
+            v: View? ->  crearLibro()
+        }
     }
 
     fun fillFields() {
@@ -49,9 +62,9 @@ class CreateBookActivity : AppCompatActivity() {
         var edicion = txtEdicionLibro.text.toString().toInt()
         var fechaP = txtFechaPLibro.text.toString()
         var nombreEd = txtEditorialLibro.text.toString()
-        var latitud = txtLatLibro.text.toString().toDouble()
-        var longitud = txtLongLibro.text.toString().toDouble()
-        var libro = Libro(this.idLibro, isbn, nombre, numeroPaginas, edicion, fechaP, nombreEd, latitud, longitud, idAutor, 0, 0)
+        var price = txtPriceLibro.text.toString().toInt()
+        var imagen = myBase64Image
+        var libro = Libro(this.idLibro, isbn, nombre, numeroPaginas, edicion, fechaP, nombreEd, price, imagen, idAutor, 0, 0)
 
         if (!tipo) {
             DataBaseLibro.insertarLibro(libro)
@@ -60,5 +73,40 @@ class CreateBookActivity : AppCompatActivity() {
         }
 
         finish()
+    }
+
+    val REQUEST_IMAGE_CAPTURE = 1
+
+    private fun tomarFoto() {
+        val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        if (takePictureIntent.resolveActivity(packageManager) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            val extras = data.extras
+            imageBitmap = extras!!.get("data") as Bitmap
+
+            myBase64Image = encodeToBase64(imageBitmap, Bitmap.CompressFormat.JPEG, 100)
+            myBitmapAgain = decodeBase64(myBase64Image)
+
+            imageViewPicture.setImageBitmap(myBitmapAgain)
+        }
+
+    }
+
+    fun encodeToBase64(image: Bitmap, compressFormat: Bitmap.CompressFormat, quality: Int): String {
+        val byteArrayOS = ByteArrayOutputStream()
+        image.compress(compressFormat, quality, byteArrayOS)
+        return android.util.Base64.encodeToString(byteArrayOS.toByteArray(), android.util.Base64.DEFAULT)
+
+    }
+
+    fun decodeBase64(input: String): Bitmap {
+        val decodedBytes =  Base64.decode(input,0)
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
     }
 }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relative_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/row_padding_vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/row_padding_vertical">
+
+    <TextView
+        android:id="@+id/txt_11"
+        android:layout_width="230dp"
+        android:layout_height="55dp"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_21"
+        android:layout_width="230dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/txt_11" />
+
+    <TextView
+        android:id="@+id/txt_31"
+        android:layout_width="230dp"
+        android:layout_height="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txt_21" />
+
+    <Button
+        android:id="@+id/btn_11"
+        android:layout_width="145dp"
+        android:layout_height="70dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/txt_11"
+        android:layout_marginEnd="0dp"
+        android:text="@string/details_btn" />
+
+    <Button
+        android:id="@+id/btn_21"
+        android:layout_width="142dp"
+        android:layout_height="56dp"
+        android:layout_alignBottom="@+id/txt_11"
+        android:layout_toEndOf="@+id/txt_11"
+        android:text="@string/add" />
+
+</RelativeLayout>
