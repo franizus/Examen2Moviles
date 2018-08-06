@@ -52,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
     fun irActivity(rol: Int) {
         when (rol) {
             1 -> {
-
+                irACustomerActivity()
             }
             2 -> {
                 irAListView()
@@ -61,6 +61,11 @@ class LoginActivity : AppCompatActivity() {
 
             }
         }
+    }
+
+    fun irACustomerActivity() {
+        val intent = Intent(this, CustomerActivity::class.java)
+        startActivity(intent)
     }
 
     fun irAListView() {

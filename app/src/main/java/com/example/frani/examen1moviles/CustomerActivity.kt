@@ -11,6 +11,7 @@ class CustomerActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
+                loadFragment(HomeFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_cart -> {
@@ -28,6 +29,8 @@ class CustomerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_customer)
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+        loadFragment(HomeFragment())
     }
 
     private fun loadFragment (fragment: Fragment?): Boolean {
